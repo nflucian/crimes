@@ -1,7 +1,9 @@
 package ro.neghina.crime
 
+import org.apache.spark.sql.functions.col
 import org.elasticsearch.spark.sql._
 import transforms._
+import org.locationtech.geomesa.spark.jts._
 
 /**
  * Crime Job what processes UK street crimes
@@ -44,6 +46,7 @@ object CrimeJob extends SparkApp {
     val df = dfStreet.join(dfOutcome, Seq("crimeId"), "left")
       .transform(lastOutcome())
       .select("crimeId", "districtName", "latitude", "longitude", "crimeType", "lastOutcome")
+      .withColumn("crimePoint", st_makePoint(col("longitude"), col("latitude")))
 
     df.saveToEs(args.output, args.es)
   }

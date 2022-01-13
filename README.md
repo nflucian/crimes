@@ -110,7 +110,7 @@ val myQuery = """{
       |    }
       |  } 
       |}""".stripMargin
-val df = spark.read.format("org.elasticsearch.spark.sql")
+val df = spark.read.format("org.elasticsearch.spark.sql") \
                      .option("query", myQuery)
                      .option("pushdown", "true")
                      .load("crimes")
@@ -171,3 +171,12 @@ val df = spark.read.format("org.elasticsearch.spark.sql")
 ### Geo query
 We need a __geo_point__ field which is a lat/lon pairs for Geo queries.
 _more info:_ https://www.elastic.co/guide/en/elasticsearch/reference/current/geo-queries.html
+
+---
+
+# Spark Geospatial Analytics
+- [Apache Sedona (GeoSpark)](https://sedona.apache.org/)
+- [GeoMesa](https://www.geomesa.org/)
+- [GeoTrellis](https://geotrellis.io/)
+- [Rasterframes](https://rasterframes.io/)
+

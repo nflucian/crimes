@@ -11,6 +11,7 @@ libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion % "provi
 
 libraryDependencies += "com.github.scopt" %% "scopt" % "4.0.1"
 libraryDependencies += "org.elasticsearch" %% "elasticsearch-spark-30" % "7.15.0"
+libraryDependencies += "org.locationtech.geomesa" %% "geomesa-spark-jts" % "3.3.0"
 libraryDependencies += "com.github.mrpowers" %% "spark-fast-tests" % "0.21.3" % "test"
 libraryDependencies += "com.holdenkarau" %% "spark-testing-base" % "3.2.0_1.1.1" % "test"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
